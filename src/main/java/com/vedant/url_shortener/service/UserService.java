@@ -1,9 +1,10 @@
 package com.vedant.url_shortener.service;
 
-import com.vedant.url_shortener.entity.User;
+import com.vedant.url_shortener.dto.RegisterRequest;
+import com.vedant.url_shortener.dto.UserResponse;
 
 public interface UserService {
 
-    User registerUser(User user);
+    UserResponse registerUser(RegisterRequest request);
 
 }

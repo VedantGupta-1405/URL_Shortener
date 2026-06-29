@@ -1,7 +1,9 @@
 package com.vedant.url_shortener.controller;
 
-import com.vedant.url_shortener.entity.User;
+import com.vedant.url_shortener.dto.RegisterRequest;
+import com.vedant.url_shortener.dto.UserResponse;
 import com.vedant.url_shortener.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -15,8 +17,8 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public User register(@RequestBody User user) {
-        return userService.registerUser(user);
+    public UserResponse register(@Valid @RequestBody RegisterRequest request) {
+        return userService.registerUser(request);
     }
 
 }
