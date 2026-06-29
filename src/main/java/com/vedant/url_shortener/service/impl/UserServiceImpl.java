@@ -7,6 +7,7 @@ import com.vedant.url_shortener.repository.UserRepository;
 import com.vedant.url_shortener.service.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import com.vedant.url_shortener.exception.EmailAlreadyExistsException;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -23,7 +24,7 @@ public class UserServiceImpl implements UserService {
     public UserResponse registerUser(RegisterRequest request) {
 
         if (userRepository.findByEmail(request.getEmail()).isPresent()) {
-            throw new RuntimeException("Email already exists");
+            throw new EmailAlreadyExistsException("Email already exists");
         }
 
         User user = new User();
