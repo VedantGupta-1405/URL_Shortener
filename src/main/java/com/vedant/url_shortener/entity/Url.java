@@ -21,7 +21,12 @@ public class Url {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @Column(name = "created_at", nullable = false)
+    @Column(
+        name = "created_at",
+        nullable = false,
+        insertable = false,
+        updatable = false
+    )
     private LocalDateTime createdAt;
 
     @Column(name = "expires_at")

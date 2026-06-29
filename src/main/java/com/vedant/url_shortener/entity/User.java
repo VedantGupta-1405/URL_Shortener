@@ -21,7 +21,12 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @Column(name = "created_at", nullable = false)
+    @Column(
+            name = "created_at",
+            nullable = false,
+            insertable = false,
+            updatable = false
+    )
     private LocalDateTime createdAt;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
